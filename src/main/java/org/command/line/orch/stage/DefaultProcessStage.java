@@ -30,7 +30,7 @@ public class DefaultProcessStage implements ProcessStage {
 
     @Override
     public List<Integer> successCodes() {
-        if (this.successCodes == null) Collections.singletonList(0);
+        if (this.successCodes == null) return Collections.singletonList(0);
         return successCodes;
     }
 
