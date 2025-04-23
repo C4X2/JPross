@@ -30,6 +30,6 @@ public interface TerminalExecutionContext {
 
     void resetExecutions();
 
-    void setWorkingDirectory(String directory);
+    //void setWorkingDirectory(String directory);
 
 }
