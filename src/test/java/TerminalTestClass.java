@@ -7,6 +7,8 @@ import org.command.line.orch.stage.DefaultProcessStage;
 import org.command.line.orch.stage.ProcessStage;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -22,9 +24,13 @@ public class TerminalTestClass {
         assertNotNull(cmd1);
         assertNotNull(cmd2);
 
+        List<Integer> codes = new ArrayList<Integer>();
+        Collections.addAll(codes, 0, 1, 2, 4, 6);
+
+
         ProcessStage processStage1 = DefaultProcessStage.builder().cmd(cmd1).build();
         ProcessStage processStage2 = DefaultProcessStage.builder().cmd(cmd2).build();
-        ProcessStage processStage3 = DefaultProcessStage.builder().cmd(goHelp).successCodes(List.of(0, 1, 2, 4, 6)).build();
+        ProcessStage processStage3 = DefaultProcessStage.builder().cmd(goHelp).successCodes(codes).build();
 
         assertNotNull(processStage1);
         assertNotNull(processStage2);

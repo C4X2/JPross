@@ -28,10 +28,14 @@ public class TerminalProcess {
             Process p = Runtime.getRuntime().exec(execCmd);
             p.waitFor();
 
-            String stnd = new String(p.getInputStream().readAllBytes());
-            String error = new String(p.getErrorStream().readAllBytes());
+            byte[] stndBytes = new byte[p.getInputStream().available()];
+            p.getInputStream().read(stndBytes);
+            String stnd = new String(stndBytes);
+            byte[] errorBytes = new byte[p.getErrorStream().available()];
+            p.getErrorStream().read(errorBytes);
+            String error = new String(errorBytes);
 
-            String retVal = (stnd != null && !stnd.isBlank()) ? stnd : error;
+            String retVal = (stnd != null && !stnd.isEmpty()) ? stnd : error;
             return ProcessResult.from(retVal, p.exitValue());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

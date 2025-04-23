@@ -8,6 +8,7 @@ import org.command.line.orch.process.ProcessResult;
 import org.command.line.orch.process.TerminalProcess;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 public class DefaultProcessStage implements ProcessStage {
@@ -29,7 +30,7 @@ public class DefaultProcessStage implements ProcessStage {
 
     @Override
     public List<Integer> successCodes() {
-        if (this.successCodes == null) return List.of(0);
+        if (this.successCodes == null) Collections.singletonList(0);
         return successCodes;
     }
 

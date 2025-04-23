@@ -4,6 +4,7 @@ import org.command.line.orch.context.TerminalErrorHandler;
 import org.command.line.orch.context.TerminalExecutionContext;
 import org.command.line.orch.output.TerminalOutput;
 
+import java.util.Collections;
 import java.util.List;
 
 public interface ProcessStage {
@@ -31,7 +32,7 @@ public interface ProcessStage {
      * @return
      */
     default List<Integer> successCodes() {
-        return List.of(0);
+        return Collections.singletonList(0);
     }
 
     default void setErrorHandler(TerminalErrorHandler err) {

@@ -1,27 +1,25 @@
 package org.command.line.orch.utils;
 
 public final class PlatformDetectionUtil {
-    private PlatformDetectionUtil (){}
+    private PlatformDetectionUtil() {
+    }
 
-    public static boolean isWindows()
-    {
+    public static boolean isWindows() {
         return Platform.WINDOWS.equals(determinePlatform());
     }
 
-    public static boolean isMac()
-    {
+    public static boolean isMac() {
         return Platform.MAC.equals(determinePlatform());
     }
 
-    public static boolean isLinux()
-    {
+    public static boolean isLinux() {
         return Platform.LINUX.equals(determinePlatform());
     }
 
     public static Platform determinePlatform() {
         String os = System.getProperty("os.name");
 
-        if (os == null || os.isBlank()) return Platform.UNKNOWN;
+        if (os == null || os.isEmpty()) return Platform.UNKNOWN;
 
         os = os.toLowerCase();
 

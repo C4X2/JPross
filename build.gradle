@@ -5,6 +5,12 @@ plugins {
 group 'org.command.line.orch'
 version '1.0-SNAPSHOT'
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
 repositories {
     mavenCentral()
 }

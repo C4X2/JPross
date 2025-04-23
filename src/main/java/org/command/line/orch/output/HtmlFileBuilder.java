@@ -18,7 +18,7 @@ public class HtmlFileBuilder {
 
 
     public static Optional<HtmlFileBuilder> from(String path) {
-        if (path == null || path.isBlank()) return Optional.empty();
+        if (path == null || path.isEmpty()) return Optional.empty();
 
         File file = new File(path);
         boolean directory = file.isDirectory();
